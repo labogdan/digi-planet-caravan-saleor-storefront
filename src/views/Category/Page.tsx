@@ -5,7 +5,7 @@ import * as React from "react";
 import { IFilterAttributes, IFilters } from "@types";
 import {
   Breadcrumbs,
-  extractBreadcrumbs,
+  extractBreadcrumbs, MainMenu,
   ProductsFeatured,
 } from "../../components";
 
@@ -83,7 +83,12 @@ const Page: React.FC<PageProps> = ({
     );
 
   return (
+
     <div className="category">
+      <header>
+        <MainMenu />
+      </header>
+
       <div className="container">
         <Breadcrumbs breadcrumbs={extractBreadcrumbs(category)} />
         <FilterSidebar

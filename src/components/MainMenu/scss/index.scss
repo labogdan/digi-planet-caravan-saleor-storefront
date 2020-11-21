@@ -1,9 +1,11 @@
 @import "../../../globalStyles/scss/variables.scss";
 
 .main-menu {
+  margin-top: 40px;
+  margin-bottom: 40px;
   align-items: center;
   align-items: stretch;
-  background-color: $white;
+  background-color: $blue-dc;
   border-bottom: 1px solid $gray-light;
   display: flex;
   flex-direction: row;
@@ -25,10 +27,10 @@
   }
 
   &__right {
-    flex-basis: calc(50% - 2rem);
+    flex-basis: calc(50%);
 
     @media (min-width: $small-screen) {
-      flex-basis: calc(50% - 4rem);
+      flex-basis: calc(50%);
     }
 
     ul {
@@ -57,7 +59,7 @@
 
     a {
       text-decoration: none;
-      color: $base-font-color;
+      color: $light-font-color;
       position: relative;
       transition: 0.3s;
 
@@ -105,6 +107,7 @@
 
     svg * {
       transition: 0.3s;
+      fill: $white;
     }
 
     &:hover {
@@ -174,17 +177,23 @@
     }
   }
 
+  &__phone {
+    color: $white;
+  }
+
   &__search {
     padding: $spacer;
     cursor: pointer;
     line-height: 24px;
     transition: 0.3s;
+    color: $white;
 
     @media (min-width: $medium-screen) {
-      border-left: 1px solid $gray-light;
+
     }
 
     svg * {
+      fill: $white;
       transition: 0.3s;
     }
 

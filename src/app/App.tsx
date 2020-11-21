@@ -10,9 +10,7 @@ const App: React.FC = () => {
     <>
       <MetaConsumer />
 
-      <header>
-        <MainMenu />
-      </header>
+
 
       <Routes />
 

@@ -27,11 +27,11 @@ import { TypedMainMenuQuery } from "./queries";
 import cartImg from "../../images/cart.svg";
 import hamburgerHoverImg from "../../images/hamburger-hover.svg";
 import hamburgerImg from "../../images/hamburger.svg";
-import logoImg from "../../images/logo.svg";
+import logoImg from "../../images/pc-logo.png";
 import searchImg from "../../images/search.svg";
 import userImg from "../../images/user.svg";
 
-const MainMenu: React.FC = () => {
+const MainMenu: React.FC<Props> = (props) => {
   const { data: user } = useUserDetails();
   const [signOut] = useSignOut();
   const { items } = useCart();
@@ -80,6 +80,15 @@ const MainMenu: React.FC = () => {
                         </li>
                       )}
                     />
+                    {props.whichMenu !== 'mainMenu' && <Media
+                      query={{ minWidth: mediumScreen }}
+                      render={() =>
+                        <Link to={appPaths.baseUrl}>
+                          <img src={logoImg} style={{width: '120px'}} alt="" />
+                        </Link>
+                      }
+                    />}
+
                     <Media
                       query={{ minWidth: mediumScreen }}
                       render={() =>
@@ -156,14 +165,27 @@ const MainMenu: React.FC = () => {
           </div>
 
           <div className="main-menu__center">
-            <Link to={appPaths.baseUrl}>
-              <ReactSVG path={logoImg} />
-            </Link>
+
           </div>
 
           <div className="main-menu__right">
             <ul>
               <Online>
+                <li
+                  className="main-menu__search"
+                  onClick={() =>
+                    overlayContext.show(OverlayType.search, OverlayTheme.right)
+                  }
+                >
+                  <Media
+                    query={{ minWidth: mediumScreen }}
+                    render={() => <span></span>}
+                  />
+                  <ReactSVG path={searchImg} />
+                </li>
+                <li className="main-menu__phone">
+                  (800) 123-1234
+                </li>
                 <Media
                   query={{ minWidth: smallScreen }}
                   render={() => (
@@ -238,18 +260,6 @@ const MainMenu: React.FC = () => {
                   />
                 </li>
               </Offline>
-              <li
-                className="main-menu__search"
-                onClick={() =>
-                  overlayContext.show(OverlayType.search, OverlayTheme.right)
-                }
-              >
-                <Media
-                  query={{ minWidth: mediumScreen }}
-                  render={() => <span>Search</span>}
-                />
-                <ReactSVG path={searchImg} />
-              </li>
             </ul>
           </div>
         </nav>

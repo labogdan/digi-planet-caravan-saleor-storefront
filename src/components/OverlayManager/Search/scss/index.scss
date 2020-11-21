@@ -9,6 +9,12 @@ $drawer-width: 25rem;
     width: $drawer-width;
   }
 
+  &--is-modal {
+    overflow: hidden;
+    position: absolute;
+    left: 50%;
+  }
+
   &--has-results {
     min-height: 100vh;
   }

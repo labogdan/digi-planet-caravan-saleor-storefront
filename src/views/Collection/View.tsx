@@ -3,7 +3,7 @@ import { RouteComponentProps } from "react-router";
 
 import { IFilters } from "@types";
 import { StringParam, useQueryParam } from "use-query-params";
-import { MetaWrapper, NotFound, OfflinePlaceholder } from "../../components";
+import { MainMenu, MetaWrapper, NotFound, OfflinePlaceholder } from "../../components";
 import NetworkStatus from "../../components/NetworkStatus";
 import { PRODUCTS_PER_PAGE } from "../../core/config";
 import {
@@ -161,6 +161,9 @@ export const View: React.FC<ViewProps> = ({ match }) => {
                     type: "product.collection",
                   }}
                 >
+                  <header>
+                    <MainMenu />
+                  </header>
                   <Page
                     clearFilters={clearFilters}
                     attributes={data.attributes.edges.map(edge => edge.node)}

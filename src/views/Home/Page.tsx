@@ -4,7 +4,7 @@ import classNames from "classnames";
 import * as React from "react";
 import { Link } from "react-router-dom";
 
-import { Button, Loader, ProductsFeatured, HomePageMenu, HomePageSearch } from "../../components";
+import { HomePageMenu, HomePageSearch, MainMenu, ProductsFeatured } from "../../components";
 import { generateCategoryUrl } from "../../core/utils";
 
 import {
@@ -28,8 +28,14 @@ const Page: React.FC<{
     return categories && categories.edges && categories.edges.length > 0;
   };
 
+  const whichMenu = {whichMenu: 'mainMenu'};
+
   return (
     <>
+      <header>
+        <MainMenu {...whichMenu} />
+      </header>
+
       <script className="structured-data-list" type="application/ld+json">
         {structuredData(shop)}
       </script>
@@ -44,6 +50,7 @@ const Page: React.FC<{
       </div>
       <HomePageSearch />
 
+      {/*
       <div
         className="home-page__hero"
         style={
@@ -81,7 +88,7 @@ const Page: React.FC<{
           )}
         </div>
       </div>
-      
+      */}
 
 
 
@@ -89,8 +96,7 @@ const Page: React.FC<{
       {categoriesExist() && (
         <div className="home-page__categories">
           <div className="container">
-            <h3>Shop by category</h3>
-            <div className="home-page__categories__list">
+            <div className="home-page__categories__row-list">
               {categories.edges.map(({ node: category }) => (
                 <div key={category.id}>
                   <Link
@@ -112,7 +118,7 @@ const Page: React.FC<{
                         })`,
                       }}
                     />
-                    <h3>{category.name}</h3>
+                    {/*<h3>{category.name}</h3>*/}
                   </Link>
                 </div>
               ))}

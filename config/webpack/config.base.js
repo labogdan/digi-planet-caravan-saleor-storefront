@@ -91,7 +91,7 @@ module.exports = ({ sourceDir, distDir }) => ({
     new HtmlWebpackPlugin({
       filename: `${distDir}/index.html`,
       template: `${sourceDir}/index.html`,
-      API_URI: "http://localhost:8000/graphql/",
+      API_URI: "https://planet-caravan-backend.herokuapp.com/graphql/",
     }),
     new ForkTsCheckerWebpackPlugin({
       tslint: true,
@@ -111,7 +111,7 @@ module.exports = ({ sourceDir, distDir }) => ({
       },
     }),
     new webpack.EnvironmentPlugin({
-      API_URI: "http://localhost:8000/graphql/",
+      API_URI: "https://planet-caravan-backend.herokuapp.com/graphql/",
     }),
   ],
   node: {
